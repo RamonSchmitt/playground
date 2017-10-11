@@ -16,7 +16,9 @@ class App extends Component {
   }
 
   addToOrder() {
-    console.log(this.props);
+    this.setState(prevState => ({
+      orders: prevState.orders
+    }));
   }
 
   removeFromOrder() {
