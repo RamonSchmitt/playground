@@ -16,11 +16,11 @@ class App extends Component {
   }
 
   addToOrder = () => {
-    this.setState({
-      orders: [...this.state.orders, this.props.dish]
-    });
+    const orders = [...this.state.orders, this.props.dish]
 
-    localStorage.setItem("orders", JSON.stringify(this.state.orders));
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    this.setState({ orders });
   }
 
   removeFromOrder = () => {
@@ -29,8 +29,8 @@ class App extends Component {
     orders.splice(index, 1);
 
     this.setState({ orders });
-    
-    localStorage.setItem("orders", JSON.stringify(this.state.orders));
+
+    localStorage.setItem("orders", JSON.stringify(orders));
   }
 
   renderOrderList() {
